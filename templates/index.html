@@ -1,0 +1,54 @@
+<html>
+    <title>Index</title>
+    <head>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script type=text/javascript>
+			$(function() {
+
+			    $('#process_input').click( function() {
+                    $.get("api/v1/dataAll?dateInput=2021-04-30", function(data) {
+                        console.log("Data returned :", data)
+                        console.log("success :", data.success)
+
+                        if(data.success == 'ok'){
+                            alert("Process ok");
+                        }else{
+                            alert("Process fail");
+                        }
+                    });
+			    });
+
+                $('#process_job').click( function() {
+                    $.get("api/v1/data/2021-04-30", function(data) {
+                        console.log("Data returned :", data)
+                        console.log("success :", data.success)
+
+                        if(data.success == 'ok'){
+                            alert("Process ok");
+                        }else{
+                            alert("Process fail");
+                        }
+                    });
+			    });
+
+			});
+		</script>
+	</head>
+    <body>
+        <table width="100%">
+            <tr>
+                <td align="center"><b>Test Run Job</b></td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <input type="button" value="Click me" id="process_input">
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <input type="button" value="Click me" id="process_job">
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
